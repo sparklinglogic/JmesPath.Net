@@ -1,0 +1,44 @@
+name: 'CI'
+
+on:
+  push:
+    branches:
+    - master
+    - features/**
+    tags:
+    - '*.*.*'
+  pull_request:
+
+env:
+  DOTNET_NOLOGO: true
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        runs-on: [ubuntu-latest]
+    name: ${{ matrix.runs-on }}
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        filter: tree:0
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - run: dotnet --info
+    
+    - if: contains(matrix.runs-on, 'macOS') || contains(matrix.runs-on, 'ubuntu')
+      run: dotnet build -c Release jmespath.net.sln
+
+    - if: matrix.runs-on == 'ubuntu-latest' && github.ref != 'refs/heads/master' && !contains(github.ref, 'refs/tags/')
+      run: dotnet test -c Release --no-build --verbosity normal jmespath.net.sln
+
+    - if: (matrix.runs-on == 'ubuntu-latest') && (github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/'))
+      run: |
+        dotnet pack -c Release --no-build  jmespath.net.sln
+        dotnet nuget push ./jmespath.net/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push ./jmespath.net.parser/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
