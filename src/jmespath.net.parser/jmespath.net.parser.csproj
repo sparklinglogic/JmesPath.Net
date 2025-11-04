@@ -20,6 +20,9 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>NET462_OR_GREATER</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <YaccFile Include="JmesPathParser.y">
       <OutputFile>JmesPathParser.g.cs</OutputFile>
