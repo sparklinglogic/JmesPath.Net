@@ -7,7 +7,6 @@ namespace DevLab.JmesPath.Expressions
     public class JmesPathVariableReference : JmesPathExpression, IContextHolder
     {
         private readonly string name_;
-        private IContextEvaluator evaluator;
 
         public JmesPathVariableReference(string name)
         {
