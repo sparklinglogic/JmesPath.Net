@@ -44,6 +44,6 @@ jobs:
     - if: (matrix.runs-on == 'ubuntu-latest') && (github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/'))
       run: |
         dotnet pack -c Release --no-build  jmespath.net.sln
-        dotnet nuget push ./jmespath.net/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
-        dotnet nuget push ./jmespath.net.parser/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
-        dotnet nuget push ./jmespath.net.interop/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push ./src/jmespath.net/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push ./src/jmespath.net.parser/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push ./src/jmespath.net.interop/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
