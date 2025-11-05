@@ -25,6 +25,7 @@ jobs:
       with:
         fetch-depth: 0
         filter: tree:0
+        submodules: 'true'
     - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
@@ -35,10 +36,14 @@ jobs:
       run: dotnet build -c Release jmespath.net.sln
 
     - if: matrix.runs-on == 'ubuntu-latest' && github.ref != 'refs/heads/master' && !contains(github.ref, 'refs/tags/')
-      run: dotnet test -c Release --no-build --verbosity normal jmespath.net.sln
+      run: |
+        dotnet test -c Release --no-build --verbosity normal jmespath.net.sln
+        dotnet run --project tools/jmespathnet.compliance -- -t tools/jmespathnet.compliance/regression
+        dotnet run --project tools/jmespathnet.compliance -- -t tools/jmespathnet.compliance/jmespath.test\tests
 
     - if: (matrix.runs-on == 'ubuntu-latest') && (github.ref == 'refs/heads/master' || contains(github.ref, 'refs/tags/'))
       run: |
         dotnet pack -c Release --no-build  jmespath.net.sln
         dotnet nuget push ./jmespath.net/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
         dotnet nuget push ./jmespath.net.parser/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push ./jmespath.net.interop/bin/Release/*.nupkg --source "https://nuget.pkg.github.com/sparklinglogic/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}

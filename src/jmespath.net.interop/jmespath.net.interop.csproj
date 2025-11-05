@@ -4,7 +4,12 @@
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <AssemblyOriginatorKeyFile>../jmespath.net.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>True</SignAssembly>
+    <PackageId>JmesPath.Net.Interop</PackageId>
+    <PackageTags>jmespath;json</PackageTags>
+    <PackageProjectUrl>https://github.com/sparklinglogic/JmesPath.Net</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/sparklinglogic/JmesPath.Net/releases</PackageReleaseNotes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 </Project>
