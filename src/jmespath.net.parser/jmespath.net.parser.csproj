@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>JmesPath.Net core language parser</Description>
     <AssemblyTitle>JmesPath.Net.Parser</AssemblyTitle>
-    <Authors>Jeremie Devillard;Maxime Labelle;Atif Aziz</Authors>
+    <Authors>Jeremie Devillard;Maxime Labelle;Atif Aziz, Sparkling Logic</Authors>
     <VersionPrefix>42.43.44</VersionPrefix>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <AssemblyName>JmePath.Net.Parser</AssemblyName>
@@ -12,12 +12,16 @@
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>JmesPath.Net.Parser</PackageId>
     <PackageTags>jmespath;json</PackageTags>
-    <PackageProjectUrl>https://github.com/jdevillard/JmesPath.Net</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/sparklinglogic/JmesPath.Net</PackageProjectUrl>
+	<PackageReleaseNotes>https://github.com/sparklinglogic/JmesPath.Net/releases</PackageReleaseNotes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>NET462_OR_GREATER</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <YaccFile Include="JmesPathParser.y">

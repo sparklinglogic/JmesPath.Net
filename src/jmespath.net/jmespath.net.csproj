@@ -4,7 +4,7 @@
     <Description>JmesPath.Net is a fully compliant JMESPATH parser.</Description>
     <AssemblyTitle>JmesPath.Net</AssemblyTitle>
     <VersionPrefix>42.43.44</VersionPrefix>
-    <Authors>Jeremie Devillard;Maxime Labelle</Authors>
+    <Authors>Jeremie Devillard;Maxime Labelle,Sparkling Logic</Authors>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
     <AssemblyName>JmesPath.Net</AssemblyName>
     <AssemblyOriginatorKeyFile>../jmespath.net.snk</AssemblyOriginatorKeyFile>
@@ -12,9 +12,10 @@
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>JmesPath.Net</PackageId>
     <PackageTags>jmespath;json</PackageTags>
-    <PackageProjectUrl>https://github.com/jdevillard/JmesPath.Net</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/sparklinglogic/JmesPath.Net</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/sparklinglogic/JmesPath.Net/releases</PackageReleaseNotes>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

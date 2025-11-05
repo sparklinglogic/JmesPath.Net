@@ -1,0 +1,26 @@
+<Project>
+
+  <!-- Global include of the version file to avoid per-project link inclusion. -->
+  <ItemGroup>
+	<PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Setup global MSBuild variables -->
+  <PropertyGroup>
+	<MinVerTagPrefix>v</MinVerTagPrefix>
+  </PropertyGroup>
+
+  <!-- Use the latest C# version -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+<!-- Use MinVer for assembly versioning -->
+ <Target Name="SetAssemblyVersion" AfterTargets="MinVer">
+    <PropertyGroup>
+      <AssemblyVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).0</AssemblyVersion>
+    </PropertyGroup>
+  </Target>
+  <!-- End common properties for all projects -->
+
+</Project>
